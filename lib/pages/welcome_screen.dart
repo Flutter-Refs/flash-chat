@@ -4,6 +4,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flash_chat/pages/login_screen.dart';
 import 'package:flash_chat/pages/registration_screen.dart';
 import 'package:flash_chat/utilities/constants.dart';
+import 'package:flash_chat/widgets/auth_button.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -84,42 +85,20 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
               height: 48.0,
             ),
             //Go to login screen.
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                elevation: 5.0,
-                color: Colors.lightBlueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, LoginScreen.route);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Log In',
-                  ),
-                ),
-              ),
+            AuthButton(
+              text: 'Log in',
+              colour: Colors.lightBlueAccent,
+              onTapped: () {
+                Navigator.pushNamed(context, LoginScreen.route);
+              },
             ),
             //Go to registration screen.
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                elevation: 5.0,
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, RegistrationScreen.route);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Register',
-                  ),
-                ),
-              ),
+            AuthButton(
+              text: 'Register',
+              colour: Colors.blueAccent,
+              onTapped: () {
+                Navigator.pushNamed(context, RegistrationScreen.route);
+              },
             ),
           ],
         ),
@@ -127,13 +106,3 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     );
   }
 }
-
-
-/*
-'Flash Chat',
-textStyle: TextStyle(
-  fontSize: 45.0,
-  fontWeight: FontWeight.w900,
-  color: Colors.black54,
-), 
- */
