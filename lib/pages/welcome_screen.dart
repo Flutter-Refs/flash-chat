@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api, prefer_const_constructors, must_be_immutable
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flash_chat/pages/login_screen.dart';
 import 'package:flash_chat/pages/registration_screen.dart';
 import 'package:flash_chat/utilities/constants.dart';
@@ -65,12 +66,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                     height: 60,
                   ),
                 ),
-                Text(
-                  'Flash Chat',
+                DefaultTextStyle(
                   style: TextStyle(
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
                     color: Colors.black54,
+                  ),
+                  child: AnimatedTextKit(
+                    animatedTexts: [
+                      TypewriterAnimatedText('Flash Chat'),
+                    ],
                   ),
                 ),
               ],
@@ -78,13 +83,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
             SizedBox(
               height: 48.0,
             ),
+            //Go to login screen.
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: Material(
                 elevation: 5.0,
                 color: Colors.lightBlueAccent,
                 borderRadius: BorderRadius.circular(30.0),
-                //Go to login screen.
                 child: MaterialButton(
                   onPressed: () {
                     Navigator.pushNamed(context, LoginScreen.route);
@@ -97,13 +102,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                 ),
               ),
             ),
+            //Go to registration screen.
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: Material(
                 color: Colors.blueAccent,
                 borderRadius: BorderRadius.circular(30.0),
                 elevation: 5.0,
-                //Go to registration screen.
                 child: MaterialButton(
                   onPressed: () {
                     Navigator.pushNamed(context, RegistrationScreen.route);
@@ -122,3 +127,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     );
   }
 }
+
+
+/*
+'Flash Chat',
+textStyle: TextStyle(
+  fontSize: 45.0,
+  fontWeight: FontWeight.w900,
+  color: Colors.black54,
+), 
+ */
