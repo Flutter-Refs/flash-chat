@@ -1,9 +1,14 @@
-// ignore_for_file: library_private_types_in_public_api, prefer_const_constructors
+// ignore_for_file: library_private_types_in_public_api, prefer_const_constructors, must_be_immutable
 
+import 'package:flash_chat/pages/login_screen.dart';
+import 'package:flash_chat/pages/registration_screen.dart';
+import 'package:flash_chat/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
-  const WelcomeScreen({super.key});
+  static const String route = 'welcom_screen';
+
+  WelcomeScreen({super.key});
 
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
@@ -22,16 +27,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Container(
-                  child: Image.asset('lib/assets/images/logo.png'),
-                  height: 60.0,
+                Hero(
+                  tag: kHeroImageTag,
+                  child: Container(
+                    child: Image.asset('lib/assets/images/logo.png'),
+                    height: 60.0,
+                  ),
                 ),
                 Text(
                   'Flash Chat',
                   style: TextStyle(
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
-                    color: Color.
+                    color: Colors.black54,
                   ),
                 ),
               ],
@@ -45,9 +53,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 elevation: 5.0,
                 color: Colors.lightBlueAccent,
                 borderRadius: BorderRadius.circular(30.0),
+                //Go to login screen.
                 child: MaterialButton(
                   onPressed: () {
-                    //Go to login screen.
+                    Navigator.pushNamed(context, LoginScreen.route);
                   },
                   minWidth: 200.0,
                   height: 42.0,
@@ -63,9 +72,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 color: Colors.blueAccent,
                 borderRadius: BorderRadius.circular(30.0),
                 elevation: 5.0,
+                //Go to registration screen.
                 child: MaterialButton(
                   onPressed: () {
-                    //Go to registration screen.
+                    Navigator.pushNamed(context, RegistrationScreen.route);
                   },
                   minWidth: 200.0,
                   height: 42.0,

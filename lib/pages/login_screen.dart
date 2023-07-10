@@ -1,8 +1,11 @@
-// ignore_for_file: prefer_const_constructors, library_private_types_in_public_api
+// ignore_for_file: prefer_const_constructors, library_private_types_in_public_apilogo.png
 
+import 'package:flash_chat/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
+  static const String route = 'login_screen';
+
   const LoginScreen({super.key});
 
   @override
@@ -20,9 +23,12 @@ class _LoginScreenState extends State<LoginScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
-              height: 200.0,
-              child: Image.asset('lib/assets/images/logo.png'),
+            Hero(
+              tag: kHeroImageTag,
+              child: Container(
+                height: 200.0,
+                child: Image.asset('lib/assets/images/logo.png'),
+              ),
             ),
             SizedBox(
               height: 48.0,

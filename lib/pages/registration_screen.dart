@@ -1,8 +1,11 @@
 // ignore_for_file: library_private_types_in_public_api, prefer_const_constructors
 
+import 'package:flash_chat/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
 class RegistrationScreen extends StatefulWidget {
+  static const String route = 'registration_screen';
+
   const RegistrationScreen({super.key});
 
   @override
@@ -20,9 +23,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
-              height: 200.0,
-              child: Image.asset('lib/assets/images/logo.png'),
+            Hero(
+              tag: kHeroImageTag,
+              child: Container(
+                height: 200.0,
+                child: Image.asset('lib/assets/images/logo.png'),
+              ),
             ),
             SizedBox(
               height: 48.0,
