@@ -96,10 +96,14 @@
   ```
 
 * Passing a Function as an Argument (`VoidCallback`) 
+
 * Firebase
   * [firebase_core](https://pub.dev/packages/firebase_core)
   * [firebase_auth](https://pub.dev/packages/firebase_auth)
   * [cloud_firestore](https://pub.dev/packages/cloud_firestore)
+
 * TextField
   * Email
   * Password
+
+* [Modal progress HUD](https://pub.dev/packages/modal_progress_hud_nsn) - shows spinner while an action is complete

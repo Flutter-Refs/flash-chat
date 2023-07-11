@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat/pages/login_screen.dart';
-import 'package:flash_chat/services/authentication_service.dart';
+import 'package:flash_chat/services/authentication_service/authentication_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/utilities/constants.dart';
 
@@ -28,11 +28,12 @@ class _ChatScreenState extends State<ChatScreen> {
         leading: null,
         actions: <Widget>[
           IconButton(
-              icon: Icon(Icons.close),
-              onPressed: () {
-                this._auth.logout();
-                Navigator.pushNamed(context, LoginScreen.route);
-              }),
+            icon: Icon(Icons.close),
+            onPressed: () {
+              this._auth.logout();
+              Navigator.pushNamed(context, LoginScreen.route);
+            },
+          ),
         ],
         title: Text('⚡️Chat'),
         backgroundColor: Colors.lightBlueAccent,
