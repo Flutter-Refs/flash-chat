@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, library_private_types_in_public_apilogo.png
 
+import 'package:flash_chat/pages/chat_screen.dart';
+import 'package:flash_chat/services/authentication_service.dart';
 import 'package:flash_chat/utilities/constants.dart';
 import 'package:flash_chat/widgets/auth_button.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +16,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final AuthenticationService _auth = AuthenticationService();
+  String email = '';
+  String password = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,6 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            // Logo
             Hero(
               tag: kHeroImageTag,
               child: Container(
@@ -34,9 +41,11 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 48.0,
             ),
+
+            // Email
             TextField(
               onChanged: (value) {
-                //Do something with the user input.
+                email = value;
               },
               decoration: kTextFieldDecoration.copyWith(
                 hintText: 'Enter your email',
@@ -45,9 +54,11 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 8.0,
             ),
+
+            // Password
             TextField(
               onChanged: (value) {
-                //Do something with the user input.
+                password = value;
               },
               decoration: kTextFieldDecoration.copyWith(
                 hintText: 'Enter your password',
@@ -57,11 +68,15 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 24.0,
             ),
+
+            // Login btn
             AuthButton(
               text: 'Log in',
               colour: Colors.blueAccent,
-              onTapped: () {
-                // implement login functionality
+              onTapped: () async {
+                if (await this._auth.login(email, password)) {
+                  Navigator.pushNamed(context, ChatScreen.route);
+                }
               },
             ),
           ],
