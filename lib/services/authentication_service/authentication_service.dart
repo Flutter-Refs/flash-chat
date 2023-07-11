@@ -1,8 +1,9 @@
 // ignore_for_file: null_check_always_fails
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flash_chat/services/authentication_service/a_authentication_service.dart';
 
-class AuthenticationService {
+class AuthenticationService implements AAuthenticationService {
   final _auth = FirebaseAuth.instance;
 
   User getCurrentUser() {
