@@ -13,6 +13,7 @@ class MessageService extends AMessageService {
       this._data.collection(_collectionName).add({
         'text': message.text,
         'sender': message.sender,
+        'timeStamp': message.timeStamp,
       });
     } catch (e) {
       print(e);
@@ -20,11 +21,15 @@ class MessageService extends AMessageService {
   }
 
   Stream<List<Message>> fetchAll() {
-    return _data.collection(_collectionName).snapshots().map((snapshot) {
+    return _data.collection(_collectionName).orderBy("timeStamp", descending: true).snapshots().map((snapshot) {
       return snapshot.docs.map((document) {
         final data = document.data();
-        final text = data.containsKey('text') ? data['text'] as String : '';
-        final sender = data.containsKey('sender') ? data['sender'] as String : '';
+        final text = data.containsKey('text') //
+            ? data['text'] as String
+            : '';
+        final sender = data.containsKey('sender') //
+            ? data['sender'] as String
+            : '';
         return Message(text: text, sender: sender);
       }).toList();
     });
