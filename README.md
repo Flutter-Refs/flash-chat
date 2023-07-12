@@ -1,5 +1,11 @@
 # flash_chat
 
+## Table of Contents
+* [Flutter](#flutter)
+* [Dart](#dart)
+
+## Flutter
+
 * [Named Routes](https://docs.flutter.dev/cookbook/navigation/named-routes)
 * [Animations](https://docs.flutter.dev/ui/animations)
   
@@ -52,6 +58,24 @@
   }
   ```
 
+* Passing a Function as an Argument (`VoidCallback`) 
+
+* Firebase
+  * Read and write data to Firestore collections
+  * [firebase_core](https://pub.dev/packages/firebase_core)
+  * [firebase_auth](https://pub.dev/packages/firebase_auth)
+  * [cloud_firestore](https://pub.dev/packages/cloud_firestore)
+
+* TextField
+  * Email
+  * Password
+
+* [Modal progress HUD](https://pub.dev/packages/modal_progress_hud_nsn) - shows spinner while an action is complete
+
+* StreamBuilder<T>
+
+## Dart
+
 * Mixins
   ```
   void main() {
@@ -95,15 +119,7 @@
   }
   ```
 
-* Passing a Function as an Argument (`VoidCallback`) 
+* Streams
+  ```
 
-* Firebase
-  * [firebase_core](https://pub.dev/packages/firebase_core)
-  * [firebase_auth](https://pub.dev/packages/firebase_auth)
-  * [cloud_firestore](https://pub.dev/packages/cloud_firestore)
-
-* TextField
-  * Email
-  * Password
-
-* [Modal progress HUD](https://pub.dev/packages/modal_progress_hud_nsn) - shows spinner while an action is complete
+  ```

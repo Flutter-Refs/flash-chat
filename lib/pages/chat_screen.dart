@@ -49,6 +49,26 @@ class _ChatScreenState extends State<ChatScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            StreamBuilder<List<Message>>(
+              stream: _messageService.fetchAll(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting || !snapshot.hasData) {
+                  // Display a loading indicator if the snapshot is not yet complete or there is no data
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (snapshot.hasError) {
+                  // Display an error message if an error occurred
+                  return Text('Error: ${snapshot.error}');
+                } else {
+                  // Display the messages
+                  final messages = snapshot.data!;
+                  return Column(
+                    children: messages.map((msg) => Text('${msg.text} from ${msg.sender}')).toList(),
+                  );
+                }
+              },
+            ),
             Container(
               decoration: kMessageContainerDecoration,
               child: Row(
